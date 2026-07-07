@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary — Carepath Blue (from the logo mark) */
+  --color-path-950: #061a26;
+  --color-path-900: #0a2e45;
+  --color-path-800: #0d3f5c;
+  --color-path-700: #0f5478;
+  --color-path-600: #1274a6;
+  --color-path-500: #1596d6;
+  --color-path-400: #29b0e8;
+  --color-path-300: #6ecdf1;
+  --color-path-100: #d9f2fb;
+  --color-path-50: #f0fafd;
+
+  /* Accent — Carepath Gold (from the logo's pulse dot) */
+  --color-amber-600: #c98600;
+  --color-amber-500: #f2b705;
+  --color-amber-400: #f8bc06;
+  --color-amber-100: #fdecc2;
+  --color-amber-50: #fff9ec;
+
+  /* Neutrals */
+  --color-ink: #0b1d2a;
+  --color-slate-700: #33475a;
+  --color-slate-500: #5c7186;
+  --color-slate-300: #b9cad4;
+  --color-slate-100: #e4edf1;
+  --color-slate-50: #f3f8fa;
+  --color-white: #ffffff;
+
+  /* Surfaces */
+  --color-canvas: #f7fafc;
+  --color-surface: #eef5f8;
+  --color-line: #dfe8ed;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-error: #dc2626;
+
+  --background: var(--color-canvas);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-path-950: var(--color-path-950);
+  --color-path-900: var(--color-path-900);
+  --color-path-800: var(--color-path-800);
+  --color-path-700: var(--color-path-700);
+  --color-path-600: var(--color-path-600);
+  --color-path-500: var(--color-path-500);
+  --color-path-400: var(--color-path-400);
+  --color-path-300: var(--color-path-300);
+  --color-path-100: var(--color-path-100);
+  --color-path-50: var(--color-path-50);
+
+  --color-amber-600: var(--color-amber-600);
+  --color-amber-500: var(--color-amber-500);
+  --color-amber-400: var(--color-amber-400);
+  --color-amber-100: var(--color-amber-100);
+  --color-amber-50: var(--color-amber-50);
+
+  --color-ink: var(--color-ink);
+  --color-slate-700: var(--color-slate-700);
+  --color-slate-500: var(--color-slate-500);
+  --color-slate-300: var(--color-slate-300);
+  --color-slate-100: var(--color-slate-100);
+  --color-slate-50: var(--color-slate-50);
+
+  --color-canvas: var(--color-canvas);
+  --color-surface: var(--color-surface);
+  --color-line: var(--color-line);
+
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+  --font-mono: var(--font-mono-face), monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--color-amber-100);
+  color: var(--color-path-900);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-path-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Glass surface used on the sticky nav and floating cards */
+.glass-surface {
+  background: color-mix(in srgb, var(--color-white) 78%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.card-surface {
+  background: color-mix(in srgb, var(--color-white) 82%, transparent);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Soft dot-grid backdrop used behind hero / section intros */
+.grid-noise {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-ink) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-ink) 6%, transparent) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.grid-fade-mask {
+  mask-image: radial-gradient(60% 55% at 50% 0%, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(60% 55% at 50% 0%, black 30%, transparent 100%);
+}
+
+.text-gradient-path {
+  background: linear-gradient(90deg, var(--color-path-600), var(--color-path-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-path-gradient {
+  background: linear-gradient(135deg, var(--color-path-600) 0%, var(--color-path-400) 130%);
+}
+
+.shadow-soft {
+  box-shadow: 0 4px 24px -8px color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+.shadow-card {
+  box-shadow: 0 20px 48px -16px color-mix(in srgb, var(--color-ink) 18%, transparent);
+}
+
+.shadow-glow {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--color-amber-500) 30%, transparent),
+    0 10px 30px -8px color-mix(in srgb, var(--color-amber-500) 40%, transparent);
+}
+
+/* ---------- Signature element: the Carepath pulse line ---------- */
+/* An EKG-style trace that stitches through section dividers and cards,
+   representing continuous monitoring — the throughline of the product. */
+.pulse-divider {
+  width: 100%;
+  height: 48px;
+  display: block;
+  overflow: visible;
+}
+
+.pulse-divider path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 6 2000;
+  animation: pulse-draw 5.5s ease-in-out infinite;
+}
+
+@keyframes pulse-draw {
+  0% { stroke-dasharray: 0 2000; }
+  35% { stroke-dasharray: 900 2000; }
+  70%, 100% { stroke-dasharray: 900 2000; stroke-dashoffset: -900; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes loop-dash {
+  to { stroke-dashoffset: -400; }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+
+.animate-loop-dash {
+  animation: loop-dash 6s linear infinite;
+}
+
+.container-c1 {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-c1 {
+    padding-inline: 2.5rem;
+  }
+}
