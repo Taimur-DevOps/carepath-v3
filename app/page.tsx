@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/home/hero";
 import { Challenge } from "@/components/home/challenge";
 import { Specialties } from "@/components/home/specialties";
-import { CareLoop } from "@/components/shared/care-loop";
+
 import { SectionHeader } from "@/components/shared/section-header";
 import { FeatureCard } from "@/components/shared/feature-card";
 import { ResponsibilitySplit } from "@/components/shared/responsibility-split";
@@ -30,9 +30,7 @@ export default function HomePage() {
             title="A Clear Division of Responsibility"
             description="Carepath operates alongside your clinic, never in place of it. Every programme runs on the protocol your doctors define."
           />
-          {/* <div className="mt-14 overflow-hidden rounded-3xl bg-path-950 p-6 sm:p-10"> */}
-            {/* <CareLoop className="mx-auto h-auto w-full max-w-xl" /> */}
-          {/* </div> */}
+   
           <div className="mt-10">
             <ResponsibilitySplit />
           </div>
